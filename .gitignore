@@ -1,2 +1,6 @@
 .ipynb_checkpoints/
 trash.py
+
+# directory-specific
+lorenzo-melchior/without_label/mnist_test.csv
+lorenzo-melchior/without_label/mnist_train.csv
