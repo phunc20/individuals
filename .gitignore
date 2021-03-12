@@ -1,5 +1,6 @@
 .ipynb_checkpoints/
 trash.py
+corbeille/
 
 # directory-specific
 lorenzo-melchior/without_label/mnist_test.csv
