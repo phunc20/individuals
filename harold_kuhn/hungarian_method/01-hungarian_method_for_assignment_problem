@@ -1,0 +1,63 @@
+### A Pluto.jl notebook ###
+# v0.19.5
+
+using Markdown
+using InteractiveUtils
+
+# ╔═╡ cf76c5e0-9409-4b72-ae7f-7aea98735e3c
+begin
+    #using HTML
+end
+
+# ╔═╡ 44240b82-e1bc-11ec-2ef2-a514c21b60c8
+md"""
+**Def.** An **assignment** refers to a non-empty set
+```math
+\left\{ (i_1, j_1), (i_2, j_2) \ldots, (i_r, j_r) \right\},
+```
+
+where $r \ge 1$ and
+$i_k$ is a qualified individual for job $j_k$ for each $k$.
+"""
+
+# ╔═╡ 0a066afb-4884-4564-a1bf-0aa05b24d43d
+md"""
+### Essentiality
+**Def.**
+Given an assignment, an individual $i$ in it is said to be
+**essential** if $\exists$ a transfer which involves $i$.
+Conversely, an individual $i$ in an assignment is said to be **not essential** or
+**inessential** if no transfer involves $i$.
+"""
+
+# ╔═╡ 205f1f9f-a68a-4124-bf49-81d4a64402f2
+md"""
+**Def.**
+Given an assignment, a job $j$ in it is said to be
+**essential** if $j$ is assigned to an inessential individual.
+Conversely, a job $j$ in an assignment is said to be **not essential** or
+**inessential** if it is assigned to an essential individual.
+"""
+
+# ╔═╡ 00000000-0000-0000-0000-000000000001
+PLUTO_PROJECT_TOML_CONTENTS = """
+[deps]
+"""
+
+# ╔═╡ 00000000-0000-0000-0000-000000000002
+PLUTO_MANIFEST_TOML_CONTENTS = """
+# This file is machine-generated - editing it directly is not advised
+
+julia_version = "1.7.2"
+manifest_format = "2.0"
+
+[deps]
+"""
+
+# ╔═╡ Cell order:
+# ╠═cf76c5e0-9409-4b72-ae7f-7aea98735e3c
+# ╟─44240b82-e1bc-11ec-2ef2-a514c21b60c8
+# ╟─0a066afb-4884-4564-a1bf-0aa05b24d43d
+# ╟─205f1f9f-a68a-4124-bf49-81d4a64402f2
+# ╟─00000000-0000-0000-0000-000000000001
+# ╟─00000000-0000-0000-0000-000000000002
