@@ -9,6 +9,53 @@ begin
     #using HTML
 end
 
+# ╔═╡ 4674a6c6-1d86-4779-ae05-5cde591d86cc
+md"""
+## 2. THE SIMPLE ASSIGNMENT PROBLEM
+The simple assignment problem can be described as follows.
+
+> There are a set of $n$ individuals and a set of $n$ jobs, where $n \ge 1$.
+> Given a job, not all individuals are qualified for it. Assuming that there
+> exists at least some individual qualified for some job, the problem states,
+> "Find the maximum number of pairs of qualified (individual, job), where
+> no individual does two jobs and no job is paired with two individuals."
+"""
+
+# ╔═╡ 6efb4835-c8a2-47c2-9c51-0c8d0e25154e
+md"""
+The qualification can be packed concisely in a matrix, called **qualification matrix**.
+For example, the following qualification relation
+```math
+\text{Individual}
+\begin{cases}
+  1 \\
+  2 \\
+  3 \\
+  4 \\
+\end{cases}\quad
+\text{qualified for job(s)}
+\begin{cases}
+  1, 2,\,\text{and}\,3 \\
+  3\,\text{and}\,4 \\
+  4 \\
+  4 \\
+\end{cases}
+```
+can be packed into
+```math
+Q = \begin{bmatrix}
+  1 & 1 & 1 & 0 \\
+  0 & 0 & 1 & 1 \\
+  0 & 0 & 0 & 1 \\
+  0 & 0 & 0 & 1 \\
+\end{bmatrix},
+```
+where
+- the rows stands for the individuals
+- the columns stands for the jobs
+- the $1$'s in the matrix stands for qualification and the $0$'s for unqualification.
+"""
+
 # ╔═╡ 44240b82-e1bc-11ec-2ef2-a514c21b60c8
 md"""
 **Def.** An **assignment** refers to a non-empty set
@@ -16,8 +63,71 @@ md"""
 \left\{ (i_1, j_1), (i_2, j_2) \ldots, (i_r, j_r) \right\},
 ```
 
-where $r \ge 1$ and
+where $1 \le r \le n$ and
 $i_k$ is a qualified individual for job $j_k$ for each $k$.
+"""
+
+# ╔═╡ feba9667-82cc-4dda-8d86-7522de4cd008
+md"""
+The matrix notation can also help express an assignment. Using the previous example,
+if we assign
+- individual $1$ to job $3$
+- individual $2$ to job $4$
+then we can express these as
+```math
+\begin{bmatrix}
+  1 & 1 & 1^* & 0 \\
+  0 & 0 & 1 & 1^* \\
+  0 & 0 & 0 & 1 \\
+  0 & 0 & 0 & 1 \\
+\end{bmatrix}.
+```
+"""
+
+# ╔═╡ e909cae6-8296-45d3-91e1-e5ba659d1760
+md"""
+**Def.** An assignment is said to be **complete**, if there exists no more qualified pair (individual, job)
+that can be added to it.
+"""
+
+# ╔═╡ fc4de50c-9c36-4290-b26d-3207ed420937
+md"""
+For example, the assignment just above the completeness definition is complete.
+"""
+
+# ╔═╡ 4580bc85-756c-41fb-a854-3d88622e2e16
+md"""
+**Def.** An assignment is said to be **optimal**, if it is a solution to the simple assignment problem.
+
+In particular, we can easily see that an optimal assignment must be complete.
+"""
+
+# ╔═╡ c5cb9926-1a8e-4c27-b35b-cdb87163098a
+md"""
+Still using the same example, if we
+- move individual $1$ from job $3$ to job $1$
+- move individual $2$ from job $4$ to job $3$
+and then
+- say, newly assign individual $3$ to job $4$
+that is,
+```math
+\begin{bmatrix}
+  1^* & 1 & 1 & 0 \\
+  0 & 0 & 1^* & 1 \\
+  0 & 0 & 0 & 1^* \\
+  0 & 0 & 0 & 1 \\
+\end{bmatrix}
+```
+then we achieve an optimal assignment.
+
+Indeed, the above assignment can be written explicitly as
+```math
+\left\{ (1,1), (2,3), (3,4) \right\}.
+```
+Assume that this is not optimal, i.e. there exists an assignment of four or more
+pairs. Then, since only job $2$ is absent from the above assumingly non-optimal assignment, the current assignment must include job $2$. Nevertheless, reading from
+the matrix, we know that only individual $1$ is qualified for job $2$. Thus the
+fourth pair is forced to be $(1,2)$, whence contradiction.
 """
 
 # ╔═╡ 0a066afb-4884-4564-a1bf-0aa05b24d43d
@@ -39,6 +149,50 @@ Conversely, a job $j$ in an assignment is said to be **not essential** or
 **inessential** if it is assigned to an essential individual.
 """
 
+# ╔═╡ 0824edf2-1a27-4acc-90ed-d9ce563a1c98
+md"""
+**Lemma 1.** For a given assignment, if an individual is assigned to a job,
+then either the individual or the job is essential, and not both.
+
+
+**Proof.**
+The proof actually derives quite naturally from the definition of essentiality.
+
+Assume that the individual $i$ in question is essential. Then we should show that the job $j$
+that $i$ is assigned to is not essential. Since $i$ is essential, we know that $j$ is not
+assigned to an inessential individual; thus, by definition, $j$ is not essential.
+
+Conversely, assume that $i$ is inessential. Then we should show that $j$ is essential.
+But this follows directly from the definition: $j$ is assigned to the inessential individual
+$i$, so $j$ is essential.
+
+$\square$
+"""
+
+# ╔═╡ bc9acbf5-afea-4527-bff2-2db4ae0247c5
+md"""
+**Corollary 1.** For all assignments, the number of individuals assigned to jobs is
+equals the number of essential individuals and jobs. That is, in any assignment,
+```
+(# assigned pairs) = (# essential individuals) + (# essential jobs)
+```
+
+
+**Proof.**
+It is not too difficult to see that
+```math
+\scriptsize
+\begin{align}
+    \texttt{(\# assigned pairs)} &= \texttt{(\# essential assigned individuals)} + \texttt{(\# inessential assigned individuals)} \\
+                                 &= \texttt{(\# essential assigned individuals)} + \texttt{(\# essential assigned jobs)} \\
+\end{align}
+```
+$\square$
+"""
+
+# ╔═╡ 340dc6e4-22b0-4ecf-9b52-6cc829581ec1
+
+
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
 [deps]
@@ -56,8 +210,18 @@ manifest_format = "2.0"
 
 # ╔═╡ Cell order:
 # ╠═cf76c5e0-9409-4b72-ae7f-7aea98735e3c
+# ╟─4674a6c6-1d86-4779-ae05-5cde591d86cc
+# ╟─6efb4835-c8a2-47c2-9c51-0c8d0e25154e
 # ╟─44240b82-e1bc-11ec-2ef2-a514c21b60c8
+# ╟─feba9667-82cc-4dda-8d86-7522de4cd008
+# ╟─e909cae6-8296-45d3-91e1-e5ba659d1760
+# ╟─fc4de50c-9c36-4290-b26d-3207ed420937
+# ╟─4580bc85-756c-41fb-a854-3d88622e2e16
+# ╠═c5cb9926-1a8e-4c27-b35b-cdb87163098a
 # ╟─0a066afb-4884-4564-a1bf-0aa05b24d43d
 # ╟─205f1f9f-a68a-4124-bf49-81d4a64402f2
+# ╟─0824edf2-1a27-4acc-90ed-d9ce563a1c98
+# ╟─bc9acbf5-afea-4527-bff2-2db4ae0247c5
+# ╠═340dc6e4-22b0-4ecf-9b52-6cc829581ec1
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
