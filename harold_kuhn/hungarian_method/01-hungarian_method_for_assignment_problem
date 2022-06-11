@@ -190,6 +190,21 @@ It is not too difficult to see that
 $\square$
 """
 
+# ╔═╡ cd488f7b-93a6-475d-9bc4-82d3df05eb58
+md"""
+**Def.** A **budget** is a function
+```math
+\left\{i_1, i_2, \cdots, i_n, j_1, j_2, \cdots, j_n\right\} \to \left\{0, 1\right\}.
+```
+That is, it is a function which assigns a value of $0$ or $1$ to each and everyone of the individuals and of the jobs.
+
+A budget $b$ is said to be **adequate** if
+```math
+b(i) + b(j) \ge 1 \quad\forall\; \text{qualified pairs}\; (i,j)
+```
+"""
+
+
 # ╔═╡ 340dc6e4-22b0-4ecf-9b52-6cc829581ec1
 
 
@@ -217,11 +232,12 @@ manifest_format = "2.0"
 # ╟─e909cae6-8296-45d3-91e1-e5ba659d1760
 # ╟─fc4de50c-9c36-4290-b26d-3207ed420937
 # ╟─4580bc85-756c-41fb-a854-3d88622e2e16
-# ╠═c5cb9926-1a8e-4c27-b35b-cdb87163098a
+# ╟─c5cb9926-1a8e-4c27-b35b-cdb87163098a
 # ╟─0a066afb-4884-4564-a1bf-0aa05b24d43d
 # ╟─205f1f9f-a68a-4124-bf49-81d4a64402f2
 # ╟─0824edf2-1a27-4acc-90ed-d9ce563a1c98
 # ╟─bc9acbf5-afea-4527-bff2-2db4ae0247c5
+# ╟─cd488f7b-93a6-475d-9bc4-82d3df05eb58
 # ╠═340dc6e4-22b0-4ecf-9b52-6cc829581ec1
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
