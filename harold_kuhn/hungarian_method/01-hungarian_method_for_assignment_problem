@@ -77,10 +77,10 @@ if we assign
 then we can express these as
 ```math
 \begin{bmatrix}
-  1 & 1 & 1^* & 0 \\
-  0 & 0 & 1 & 1^* \\
-  0 & 0 & 0 & 1 \\
-  0 & 0 & 0 & 1 \\
+  1 & 1 & 1^* & 0\phantom{^*} \\
+  0 & 0 & 1\phantom{^*} & 1^* \\
+  0 & 0 & 0\phantom{^*} & 1\phantom{^*} \\
+  0 & 0 & 0\phantom{^*} & 1\phantom{^*} \\
 \end{bmatrix}.
 ```
 """
@@ -113,10 +113,10 @@ and then
 that is,
 ```math
 \begin{bmatrix}
-  1^* & 1 & 1 & 0 \\
-  0 & 0 & 1^* & 1 \\
-  0 & 0 & 0 & 1^* \\
-  0 & 0 & 0 & 1 \\
+  1^* & 1 & 1\phantom{^*} & 0\phantom{^*} \\
+  0\phantom{^*} & 0 & 1^* & 1\phantom{^*} \\
+  0\phantom{^*} & 0 & 0\phantom{^*} & 1^* \\
+  0\phantom{^*} & 0 & 0\phantom{^*} & 1\phantom{^*} \\
 \end{bmatrix}
 ```
 then we achieve an optimal assignment.
@@ -168,6 +168,16 @@ A_2 = \left\{ (i_1, j_0), (i_2, j_1), \cdots, (i_{r-1}, j_{r-2}), (i_r, j_{r-1})
 ```
 More pictorically, we can represent a transfer by a graph similar to the following:
 """
+
+# ╔═╡ 5f3308bc-e9e4-4183-8253-b1c426e28556
+transfer_pic = TikzPicture(L"""
+\node (j0) {$j_{0}$};
+\node (j1) {$j_{1}$};
+""", preamble="",
+)
+
+# ╔═╡ bc227fc7-cb46-4503-b173-d98efd45805a
+
 
 # ╔═╡ 1b340dd7-a781-4aa1-9b44-de246e1d3b3b
 md"""
@@ -640,9 +650,11 @@ uuid = "3f19e933-33d8-53b3-aaab-bd5110c3b7a0"
 # ╟─e909cae6-8296-45d3-91e1-e5ba659d1760
 # ╟─fc4de50c-9c36-4290-b26d-3207ed420937
 # ╟─4580bc85-756c-41fb-a854-3d88622e2e16
-# ╟─c5cb9926-1a8e-4c27-b35b-cdb87163098a
+# ╠═c5cb9926-1a8e-4c27-b35b-cdb87163098a
 # ╟─f7df3236-d525-4cdc-a9a0-398c29dec670
 # ╟─fa75ab33-0539-4a8c-9249-9defd26bf006
+# ╠═5f3308bc-e9e4-4183-8253-b1c426e28556
+# ╠═bc227fc7-cb46-4503-b173-d98efd45805a
 # ╟─1b340dd7-a781-4aa1-9b44-de246e1d3b3b
 # ╟─0a066afb-4884-4564-a1bf-0aa05b24d43d
 # ╟─205f1f9f-a68a-4124-bf49-81d4a64402f2
