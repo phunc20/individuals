@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.19.5
+# v0.19.9
 
 using Markdown
 using InteractiveUtils
@@ -9,6 +9,54 @@ begin
     #using HTML
     using TikzPictures
 end
+
+# ╔═╡ e26e01e3-b69c-4c04-9584-80d5d4404335
+md"""
+# Origin of The Present Notebook
+I find the paper, "_The Hungarian Method for The Assignment Problem_" by H. W. Kuhn, somewhat difficult to digest from today's standard.
+
+In response, I create this notebook, hoping to clarify
+(for its readers and for myself) the paper.
+If possible, I'd also like to implement the algorithm in Julia
+at the end.
+
+(**Rmk.** One major reason for which I find the original paper unclear
+is the order in which materials are presented. Don't take me
+wrong -- I think Mr. Kuhn had his own considerations by making
+that arrangement. It is just that I wish
+to help present-day readers like me to more quickly grasp
+the ideas, or at least that I hope to achieve this.)
+"""
+
+# ╔═╡ 46e9bc52-cc34-4b9d-99b9-55afb588d996
+md"""
+## 1. The General Assignment Problem
+
+
+**(?1)** Why the $r_{i,j}$'s needs to be positive? What if our problem needs to minimize $\sum_{i=1}^{n} r_{i, j_i}$, instead
+of maximizing it?
+
+**(?2)** Why the dual problem looks like this? And somewhat related to question 1: why the $u_i, v_j$ need to be non-negative this time, unlike the postive $r_{i,j}$?
+
+**(?3)** Why (around the end of page 88 of the original paper) could we assume WLOG that
+```math
+u_i > 0 \qquad\forall\; i = 1,\ldots,n?
+```
+**(R3)** Actually, Mr. Kuhn has already explained this in the paper.
+Indeed, let's first restate more clearly the claim
+```math
+u > 0 \quad\text{or}\quad v > 0.
+```
+To prove this, assume the contrary, i.e.
+```math
+\exists\; i, j \quad\text{s.t.}\quad u_i = 0 \quad\text{and}\quad v_j = 0.
+```
+This would lead to
+```math
+r_{i,j} \le u_i + v_j = 0,
+```
+which contradicts the assumption that all $r_{i,j}$'s are positive.
+"""
 
 # ╔═╡ 4674a6c6-1d86-4779-ae05-5cde591d86cc
 md"""
@@ -643,7 +691,9 @@ uuid = "3f19e933-33d8-53b3-aaab-bd5110c3b7a0"
 
 # ╔═╡ Cell order:
 # ╠═cf76c5e0-9409-4b72-ae7f-7aea98735e3c
-# ╟─4674a6c6-1d86-4779-ae05-5cde591d86cc
+# ╟─e26e01e3-b69c-4c04-9584-80d5d4404335
+# ╠═46e9bc52-cc34-4b9d-99b9-55afb588d996
+# ╠═4674a6c6-1d86-4779-ae05-5cde591d86cc
 # ╟─6efb4835-c8a2-47c2-9c51-0c8d0e25154e
 # ╟─44240b82-e1bc-11ec-2ef2-a514c21b60c8
 # ╟─feba9667-82cc-4dda-8d86-7522de4cd008
