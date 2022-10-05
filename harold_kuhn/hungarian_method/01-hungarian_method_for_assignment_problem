@@ -34,7 +34,8 @@ md"""
 
 
 **(?1)** Why the $r_{i,j}$'s needs to be positive? What if our problem needs to minimize $\sum_{i=1}^{n} r_{i, j_i}$, instead
-of maximizing it?
+of maximizing it? Must the $r_{i,j}$'s be integers? Or they could
+also be any real numbers?
 
 **(?2)** Why the dual problem looks like this? And somewhat related to question 1: why the $u_i, v_j$ need to be non-negative this time, unlike the postive $r_{i,j}$?
 
