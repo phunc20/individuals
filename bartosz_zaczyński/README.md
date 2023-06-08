@@ -1,0 +1,4 @@
+- [RealPython](https://realpython.com/team/bzaczynski/)
+- [GitHub](https://github.com/bzaczynski)
+- [Twitter](https://twitter.com/bzaczynski?lang=en)
+- [LinkedIn](https://www.linkedin.com/in/bzaczynski/?originalSubdomain=pl)

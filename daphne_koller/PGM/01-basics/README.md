@@ -1,4 +1,6 @@
-
+## Resources
+- <http://reasoning.cs.ucla.edu/samiam/index.php>
+  - <https://www.youtube.com/c/UCLAAutomatedReasoningGroup/featured>
 
 
 ## Todo
